@@ -31,20 +31,21 @@ Resources:
       CidrBlock: !Ref VpcCidr
       EnableDnsHostnames: True
       EnableDnsSupport: True
+      AvailabilityZone: "us-east-1"
   PublicSubnet1:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref Vpc
       CidrBlock: !Select [ 0, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       MapPublicIpOnLaunch: True
-      AvailabilityZone: ap-south-1a
+      AvailabilityZone: us-east-1a
   PublicSubnet2:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref Vpc
       CidrBlock: !Select [ 1, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       MapPublicIpOnLaunch: True
-      AvailabilityZone: ap-south-1b
+      AvailabilityZone: us-east-1b
   InternetGateway:
     Type: AWS::EC2::InternetGateway
   AttachGateway:
@@ -69,28 +70,28 @@ Resources:
       VpcId: !Ref Vpc
       CidrBlock: !Select [ 5, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       MapPublicIpOnLaunch: False
-      AvailabilityZone: ap-south-1a
+      AvailabilityZone: us-east-1a
   PrivateSubnet2:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref Vpc
       CidrBlock: !Select [ 6, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       MapPublicIpOnLaunch: False
-      AvailabilityZone: ap-south-1b
+      AvailabilityZone: us-east-1b
   RDSPrivateSubnet1:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref Vpc
       CidrBlock: !Select [ 2, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       MapPublicIpOnLaunch: False
-      AvailabilityZone: ap-south-1a
+      AvailabilityZone: us-east-1a
   RDSPrivateSubnet2:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref Vpc
       CidrBlock: !Select [ 3, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       MapPublicIpOnLaunch: False
-      AvailabilityZone: ap-south-1b
+      AvailabilityZone: us-east-1b
   InternetGateway:
     Type: AWS::EC2::InternetGateway
   AttachGateway:
