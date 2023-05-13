@@ -3,10 +3,10 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: vpc with public and private subnets 
 
 Parameters:
-  MyKeyPairName:
-    Type: String
-  MyImageId:
-    Type: String
+#   MyKeyPairName:
+#     Type: String
+#   MyImageId:
+#     Type: String
   VpcCidr:
     Default: '10.1.0.0/16'
     Type: String
