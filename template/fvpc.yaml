@@ -31,7 +31,6 @@ Resources:
       CidrBlock: !Ref VpcCidr
       EnableDnsHostnames: True
       EnableDnsSupport: True
-      Region: us-east-1
   PublicSubnet1:
     Type: AWS::EC2::Subnet
     Properties:
