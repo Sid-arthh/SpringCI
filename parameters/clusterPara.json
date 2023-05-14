@@ -1,11 +1,7 @@
 [
   {
-    "ParameterKey": "VpcId",
-    "ParameterValue": "10.1.0.0/16"
-  },
-  {
-    "ParameterKey": "SubnetId",
-    "ParameterValue": "PublicSubnet1,PublicSubnet2,PrivateSubnet1,PrivateSubnet2,RDSPrivateSubnet1,RDSPrivateSubnet2"
+    "ParameterKey": "ExportVpcStackName",
+    "ParameterValue": "mystack"
   },
   {
     "ParameterKey": "DesiredCapacity",
