@@ -3,8 +3,8 @@ Parameters:
   ExportVpcStackName:
     Description: The name of the vpc Stack
     Type: String
-  SubnetId:
-    Type: 'List<AWS::EC2::Subnet::Id>'
+#   SubnetId:
+#     Type: 'List<AWS::EC2::Subnet::Id>'
     
   ClusterName:
     Type: String
