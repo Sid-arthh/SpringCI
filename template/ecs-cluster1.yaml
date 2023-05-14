@@ -19,7 +19,7 @@ Resources:
   Cluster:
     Type: AWS::ECS::Cluster
     Properties:
-      ClusterName: !Ref Cluster
+      ClusterName: !Ref ClusterName
   LogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
