@@ -29,7 +29,7 @@
   },
   {
     "ParameterKey": "DesiredCount",
-    "ParameterValue": "2"
+    "ParameterValue": "1"
   },
   {
     "ParameterKey": "Role",
