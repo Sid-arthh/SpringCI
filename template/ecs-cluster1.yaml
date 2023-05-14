@@ -7,6 +7,9 @@ Parameters:
       in which LoadBalancer was created.
   SubnetId:
     Type: 'List<AWS::EC2::Subnet::Id>'
+    
+  ClusterName:
+    Type: String
 
   DesiredCapacity:
     Type: Number
@@ -16,7 +19,7 @@ Resources:
   Cluster:
     Type: AWS::ECS::Cluster
     Properties:
-      ClusterName: test-cluster
+      ClusterName: !Ref Cluster
   LogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
