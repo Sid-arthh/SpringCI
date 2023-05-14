@@ -9,16 +9,16 @@ Parameters:
   InstanceType:
     Default: 't2.micro'
     Type: String
-  VpcId:
-    Type: AWS::EC2::VPC::Id
-    Description: >-
-      Select a VPC that allows instances to access the Internet. Select same VPC
-      in which LoadBalancer was created.
-  SubnetId:
-    Type: 'List<AWS::EC2::Subnet::Id>'
-    Description: >-
-      Select at two subnets in your selected VPC. Select same Subnets in which
-      LoadBalancer was created.
+#   VpcId:
+#     Type: AWS::EC2::VPC::Id
+#     Description: >-
+#       Select a VPC that allows instances to access the Internet. Select same VPC
+#       in which LoadBalancer was created.
+#   SubnetId:
+#     Type: 'List<AWS::EC2::Subnet::Id>'
+#     Description: >-
+#       Select at two subnets in your selected VPC. Select same Subnets in which
+#       LoadBalancer was created.
   SSHLocation:
    Description: The IP address range that can be used to SSH to the EC2 instances
    Type: String
@@ -53,7 +53,7 @@ Resources:
           - |
             #!/bin/bash
             mkdir /etc/ecs
-            echo "ECS_CLUSTER=test-cluster" >> /etc/ecs/ecs.config
+            echo "ECS_CLUSTER=spring-cluster" >> /etc/ecs/ecs.config
           - {
             }
   ApplicationAsg:
@@ -67,7 +67,9 @@ Resources:
       LaunchTemplate:
         LaunchTemplateId: !Ref AsgLaunchTemplate
         Version: !GetAtt AsgLaunchTemplate.LatestVersionNumber
-      VPCZoneIdentifier: !Ref SubnetId
+      VPCZoneIdentifier: 
+          - Fn::ImportValue: !Sub ${ExportVpcStackName}-PrivateSubnet1
+          - Fn::ImportValue: !Sub ${ExportVpcStackName}-PrivateSubnet2
       TargetGroupARNs: 
            - Fn::ImportValue: 
               !Sub ${ExportVpcStackName}-TargetGroup
