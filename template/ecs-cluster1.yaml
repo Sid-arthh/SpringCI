@@ -1,10 +1,8 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Parameters:
-  VpcId:
-    Type: AWS::EC2::VPC::Id
-    Description: >-
-      Select a VPC that allows instances to access the Internet. Select same VPC
-      in which LoadBalancer was created.
+  ExportVpcStackName:
+    Description: The name of the vpc Stack
+    Type: String
   SubnetId:
     Type: 'List<AWS::EC2::Subnet::Id>'
     
