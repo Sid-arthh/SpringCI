@@ -1,0 +1,28 @@
+[
+  {
+    "ParameterKey": "VpcId",
+    "ParameterValue": "10.1.0.0/16"
+  },
+  {
+    "ParameterKey": "SubnetId",
+    "ParameterValue": [
+      "PublicSubnet1",
+      "PublicSubnet2",
+      "PrivateSubnet1",
+      "PrivateSubnet2",
+      "RDSPrivateSubnet1",
+      "RDSPrivateSubnet2"
+    ]
+  },
+  {
+    "ParameterKey": "DesiredCapacity",
+    "ParameterValue": "1"
+  },
+  {
+    "ParameterKey": "ClusterName",
+    "ParameterValue": "spring-cluster"
+  }
+]
+
+
+
