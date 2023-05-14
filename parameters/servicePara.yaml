@@ -1,0 +1,64 @@
+[
+  {
+    "ParameterKey": "ExportClusterStackName",
+    "ParameterValue": "mycluster"
+  },
+  {
+    "ParameterKey": "ExportVpcStackName",
+    "ParameterValue": "mystack"
+  },
+  {
+    "ParameterKey": "ServiceName",
+    "ParameterValue": "springboot"
+  },
+  {
+    "ParameterKey": "ImageUrl",
+    "ParameterValue": "public.ecr.aws/r9p5w0x9/spr"
+  },
+  {
+    "ParameterKey": "ContainerPort",
+    "ParameterValue": "8090"
+  },
+  {
+    "ParameterKey": "Path",
+    "ParameterValue": "*"
+  },
+  {
+    "ParameterKey": "Priority",
+    "ParameterValue": "1"
+  },
+  {
+    "ParameterKey": "DesiredCount",
+    "ParameterValue": "2"
+  },
+  {
+    "ParameterKey": "Role",
+    "ParameterValue": "ecsTaskExecutionRole"
+  },
+  {
+    "ParameterKey": "Profile",
+    "ParameterValue": "mysql"
+  },
+  {
+    "ParameterKey": "DBNAME",
+    "ParameterValue": "applicationdb"
+  },
+  {
+    "ParameterKey": "DBUSERNAME",
+    "ParameterValue": "dbadmin"
+  },
+  {
+    "ParameterKey": "DBPASSWORD",
+    "ParameterValue": "Password123"
+  },
+  {
+    "ParameterKey": "DBPORT",
+    "ParameterValue": "3306"
+  },
+  {
+    "ParameterKey": "DBENDPOINT",
+    "ParameterValue": "mysqldb.cqsays69b12u.us-east-1.rds.amazonaws.com"
+  }
+]
+
+
