@@ -7,7 +7,7 @@ Parameters:
     Description: The name of the vpc Stack
     Type: String
   InstanceType:
-    Default: 't2.micro'
+    Default: 't3.large'
     Type: String
 #   VpcId:
 #     Type: AWS::EC2::VPC::Id
