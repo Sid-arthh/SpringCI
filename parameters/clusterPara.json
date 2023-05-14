@@ -5,14 +5,7 @@
   },
   {
     "ParameterKey": "SubnetId",
-    "ParameterValue": [
-      "PublicSubnet1",
-      "PublicSubnet2",
-      "PrivateSubnet1",
-      "PrivateSubnet2",
-      "RDSPrivateSubnet1",
-      "RDSPrivateSubnet2"
-    ]
+    "ParameterValue": "PublicSubnet1,PublicSubnet2,PrivateSubnet1,PrivateSubnet2,RDSPrivateSubnet1,RDSPrivateSubnet2"
   },
   {
     "ParameterKey": "DesiredCapacity",
