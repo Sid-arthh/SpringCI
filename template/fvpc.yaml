@@ -221,7 +221,7 @@ Resources:
       GroupDescription: Enable HTTP access via port 80
       SecurityGroupIngress:
         - IpProtocol: tcp
-          FromPort: '32768'
+          FromPort: '0'
           ToPort: '61000'
           SourceSecurityGroupId: !Ref ELBWebServerSecurityGroup
         - IpProtocol: tcp
