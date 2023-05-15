@@ -1,13 +1,5 @@
 [
   {
-    "ParameterKey": "ExportVpcStackName",
-    "ParameterValue": "mystack"
-  },
-  {
-    "ParameterKey": "DesiredCapacity",
-    "ParameterValue": "1"
-  },
-  {
     "ParameterKey": "ClusterName",
     "ParameterValue": "spring-cluster"
   }
