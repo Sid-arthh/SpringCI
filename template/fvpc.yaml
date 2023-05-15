@@ -92,13 +92,13 @@ Resources:
       CidrBlock: !Select [ 3, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       MapPublicIpOnLaunch: False
       AvailabilityZone: us-east-1b
-  InternetGateway:
-    Type: AWS::EC2::InternetGateway
-  AttachGateway:
-    Type: AWS::EC2::VPCGatewayAttachment
-    Properties:
-      VpcId: !Ref Vpc
-      InternetGatewayId: !Ref InternetGateway
+#   InternetGateway:
+#     Type: AWS::EC2::InternetGateway
+#   AttachGateway:
+#     Type: AWS::EC2::VPCGatewayAttachment
+#     Properties:
+#       VpcId: !Ref Vpc
+#       InternetGatewayId: !Ref InternetGateway
   RouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -217,6 +217,32 @@ Resources:
       DefaultActions:
         - Type: forward
           TargetGroupArn: !Ref TargetGroup
+  PublicServerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH for bation
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp:
+            Ref: SSHLocation
+      VpcId: !Ref Vpc 
+  WebServerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable HTTP access via port 80
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '0'
+          ToPort: '61000'
+          SourceSecurityGroupId: !Ref ELBWebServerSecurityGroup
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp:
+            Ref: SSHLocation
+      VpcId: !Ref Vpc
   WebServerSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -244,6 +270,17 @@ Resources:
           ToPort: 3306
           SourceSecurityGroupId: !Ref WebServerSecurityGroup
       VpcId: !Ref Vpc
+  BastionHost:
+    Type: AWS::EC2::Instance
+    DependsOn: PublicSubnet1 
+    Properties:
+      ImageId:  ami-007855ac798b5175e
+      InstanceType: t2.micro 
+      KeyName: ec2 
+      SubnetId: !Ref PublicSubnet1  
+      SecurityGroupIds:
+        - !Ref PublicServerSecurityGroup      
+   
 
 Outputs:
   Vpc:
