@@ -10,19 +10,9 @@ Parameters:
     Type: String
   ImageUrl:
     Type: String
-  # ContainerPorts:
-  #   Type: String
-  #   Description: Comma Seperated list of Container ports and their corresponding host ports
-  #   Default: "8090:0,3306:0"
   ContainerPort:
     Type: Number
     Description: Type the port to receive traffic on
-  # ContainerCpu:
-  #   Type: Number
-  #   Default: 256
-  # ContainerMemory:
-  #   Type: Number
-  #   Default: 512
   Path:
     Type: String
   Priority:
@@ -71,10 +61,7 @@ Resources:
           PortMappings: 
              - ContainerPort: !Ref ContainerPort
                Protocol: tcp
-            # - ContainerPort: !Select [0, !Fn::Cidr [!Ref ContainerPort, 0, 1]]
-            #   HostPort: !Select [0, !Fn::Cidr [!Ref ContainerPort, 0, 1]]
-            # - ContainerPort: !Select [1, !Fn::Cidr [!Ref ContainerPort, 0, 1]]
-            #   HostPort: !Select [1, !Fn::Cidr [!Ref ContainerPort, 0, 1]]
+     
 
 
           Environment:
