@@ -75,7 +75,7 @@ Resources:
             Value: !Ref DBPORT
           - Name: "DB_ENDPOINT"
             Value: 
-              - Fn::ImportValue: !Sub ${ExportRDSStackName}-DatabaseEndpoint
+               Fn::ImportValue: !Sub ${ExportRDSStackName}-DatabaseEndpoint
           - Name: "SPRING_PROFILES_ACTIVE"
             Value: !Ref Profile
           - Name: "DB_PASSWORD"
