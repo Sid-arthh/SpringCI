@@ -5,7 +5,7 @@
   },
   {
     "ParameterKey": "MyImageId",
-    "ParameterValue": "ami-01ca50b701a74ed92"
+    "ParameterValue": "ami-090310a05d8eae025"
   },
   {
     "ParameterKey": "ExportVpcStackName",
