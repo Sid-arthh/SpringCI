@@ -49,7 +49,7 @@
   },
   {
     "ParameterKey": "DBPASSWORD",
-    "ParameterValue": "Password123"
+    "ParameterValue": "mydbpassword"
   },
   {
     "ParameterKey": "DBPORT",
