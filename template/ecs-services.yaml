@@ -112,35 +112,3 @@ Resources:
             Fn::ImportValue: 
               !Sub ${ExportVpcStackName}-TargetGroup
 
-  # TargetGroup:
-  #   Type: AWS::ElasticLoadBalancingV2::TargetGroup
-  #   Properties:
-  #     HealthCheckIntervalSeconds: 60
-  #     HealthCheckPath: "/swagger-ui.html"
-  #     HealthCheckProtocol: HTTP
-  #     HealthCheckTimeoutSeconds: 5
-  #     HealthyThresholdCount: 2
-  #     Matcher:
-  #       HttpCode: 200-299
-  #     Name: !Ref 'ServiceName'
-  #     Port: 80
-  #     Protocol: HTTP
-  #     UnhealthyThresholdCount: 2
-  #     VpcId:
-  #        Fn::ImportValue:
-  #          !Sub "${ExportVpcStackName}-VPC"
-
-
-  # LoadBalancerRule:
-  #   Type: AWS::ElasticLoadBalancingV2::ListenerRule
-  #   Properties:
-  #     Actions:
-  #       - TargetGroupArn: !Ref 'TargetGroup'
-  #         Type: 'forward'
-  #     Conditions:
-  #       - Field: path-pattern
-  #         Values: [!Ref 'Path']
-  #     ListenerArn:
-  #        Fn::ImportValue:
-  #           !Sub "${ExportVpcStackName}-Listener"
-  #     Priority: !Ref 'Priority'
