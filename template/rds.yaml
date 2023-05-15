@@ -103,6 +103,8 @@ Resources:
     Type: AWS::CloudFormation::WaitConditionHandle
     DependsOn: DatabaseInstance
 
+Conditions:
+  WaitForDummyResource: !Not [!Equals [!Ref DummyResource, ""]]
 Outputs:
   DatabaseEndpoint:
     Condition: WaitForDummyResource
@@ -111,8 +113,6 @@ Outputs:
       Name: !Sub "${AWS::StackName}-DatabaseEndpoint"
     
 
-Conditions:
-  WaitForDummyResource: !Not [!Equals [!Ref DummyResource, ""]]
 
     
   
