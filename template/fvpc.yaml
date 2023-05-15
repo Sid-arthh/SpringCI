@@ -27,6 +27,7 @@ Parameters:
 Resources:
   Vpc:
     Type: AWS::EC2::VPC
+    DependsOn: InternetGateway
     Properties:
       CidrBlock: !Ref VpcCidr
       EnableDnsHostnames: True
@@ -186,6 +187,7 @@ Resources:
 
   LoadBalancer:
     Type: "AWS::ElasticLoadBalancingV2::LoadBalancer"
+    DependsOn: Vpc
     Properties:
       Name: MyLoadBalancer
       Scheme: "internet-facing"
