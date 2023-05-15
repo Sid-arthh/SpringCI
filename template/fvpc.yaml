@@ -3,17 +3,10 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: vpc with public and private subnets 
 
 Parameters:
-#   MyKeyPairName:
-#     Type: String
-#   MyImageId:
-#     Type: String
   VpcCidr:
     Default: '10.1.0.0/16'
     Type: String
     AllowedPattern: '(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})'
-#   InstanceType:
-#     Default: 't2.micro'
-#     Type: String
 
   SSHLocation:
    Description: The IP address range that can be used to SSH to the EC2 instances
@@ -92,13 +85,7 @@ Resources:
       CidrBlock: !Select [ 3, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       MapPublicIpOnLaunch: False
       AvailabilityZone: us-east-1b
-#   InternetGateway:
-#     Type: AWS::EC2::InternetGateway
-#   AttachGateway:
-#     Type: AWS::EC2::VPCGatewayAttachment
-#     Properties:
-#       VpcId: !Ref Vpc
-#       InternetGatewayId: !Ref InternetGateway
+
   RouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
