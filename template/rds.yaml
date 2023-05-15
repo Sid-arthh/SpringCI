@@ -107,7 +107,7 @@ Resources:
     DependsOn: DatabaseInstance
     Properties:
       Handle: !Ref WaitConditionHandle
-      Timeout: '120'
+      Timeout: '400'
 
 
 Outputs:
