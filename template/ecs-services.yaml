@@ -33,9 +33,6 @@ Parameters:
     Type: String
   DBPORT:
     Type: Number
-#   DBENDPOINT:
-#     Type: String
-
 
 Conditions:
   HasCustomRole: !Not [ !Equals [!Ref 'Role', ''] ]
