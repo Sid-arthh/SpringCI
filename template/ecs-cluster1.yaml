@@ -1,18 +1,18 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Parameters:
-  ExportVpcStackName:
-    Description: The name of the vpc Stack
-    Type: String
+#   ExportVpcStackName:
+#     Description: The name of the vpc Stack
+#     Type: String
 #   SubnetId:
 #     Type: 'List<AWS::EC2::Subnet::Id>'
     
   ClusterName:
     Type: String
 
-  DesiredCapacity:
-    Type: Number
-    Default: 1
-    Description: Number of instances to launch in your ECS cluster.
+#   DesiredCapacity:
+#     Type: Number
+#     Default: 1
+#     Description: Number of instances to launch in your ECS cluster.
 Resources:
   Cluster:
     Type: AWS::ECS::Cluster
