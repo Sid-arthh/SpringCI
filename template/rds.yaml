@@ -99,21 +99,21 @@ Resources:
       VPCSecurityGroups: 
          - Fn::ImportValue: !Sub ${ExportVpcStackName}-DataBaseSecurityGroup
   
-# Outputs:
+  DummyResource:
+    Type: AWS::CloudFormation::WaitConditionHandle
+    DependsOn: DatabaseInstance
 
+Outputs:
+  DatabaseEndpoint:
+    Condition: WaitForDummyResource
+    Value: !GetAtt DatabaseInstance.Endpoint.Address
+    Export:
+      Name: !Sub "${AWS::StackName}-DatabaseEndpoint"
+    
 
-#    RDSInstanceEndpoint:
-#     Value: 
-#         Fn::If:
-#         - RDSInstanceCreated
-#         - !GetAtt DatabaseInstance.EndPoint.Address
-#     Export:
-#        Name: !Sub ${AWS::StackName}-RDSInstanceEndpoint
-#     DependsOn: DatabaseInstance
+Conditions:
+  WaitForDummyResource: !Not [!Equals [!Ref DummyResource, ""]]
 
-# Conditions:
-#   RDSInstanceCreated: !Not [!Equals [!Ref DatabaseInstance, ""]]
-   
     
   
 
