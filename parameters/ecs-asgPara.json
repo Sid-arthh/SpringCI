@@ -9,7 +9,7 @@
   },
   {
     "ParameterKey": "ExportVpcStackName",
-    "ParameterValue": "mystack"
+    "ParameterValue": "myvpc"
   },
   {
     "ParameterKey": "InstanceType",
