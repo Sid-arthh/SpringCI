@@ -6,6 +6,8 @@ Parameters:
   ExportVpcStackName:
     Description: The name of the vpc Stack
     Type: String
+  ExportRDSStackName:
+    Type: String
   ServiceName:
     Type: String
   ImageUrl:
@@ -31,8 +33,8 @@ Parameters:
     Type: String
   DBPORT:
     Type: Number
-  DBENDPOINT:
-    Type: String
+#   DBENDPOINT:
+#     Type: String
 
 
 Conditions:
@@ -72,7 +74,8 @@ Resources:
           - Name: "DB_PORT"
             Value: !Ref DBPORT
           - Name: "DB_ENDPOINT"
-            Value: !Ref DBENDPOINT
+            Value: 
+              - Fn::ImportValue: !Sub ${ExportRDSStackName}-DatabaseEndpoint
           - Name: "SPRING_PROFILES_ACTIVE"
             Value: !Ref Profile
           - Name: "DB_PASSWORD"
